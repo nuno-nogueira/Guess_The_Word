@@ -11,7 +11,7 @@ It has 2 gamemodes, Classic Mode and the Flag Mode:
 -> Available in 5 difficulties! (Easy, Medium, Hard, Challenge, and Random; _More details in the game_) <br>
 
 <picture>
-  <img src="C:\Users\nunon\Pictures\Screenshots\gamemode_screen.png" alt="Flowers" style="width:auto;">
+  <img src="C:/Users/nunon/Pictures/Screenshots/gamemode_screen.png" alt="Gamemode selection screen" style="width:auto;">
 </picture>
 
 #### Flag Mode
