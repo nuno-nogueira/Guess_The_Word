@@ -21,7 +21,7 @@ It has 2 gamemodes, Classic Mode and the Flag Mode:
 -> You have the ability to reset it and start all over again! <br>
 
 #### Hints
-You have difficulty in guessing a word? Use hints to reveal a random letter and help you!
+You have difficulty in guessing a word? Use hints to reveal a random letter!
 
 ## How to install "Guess the Word"?
 Simply download the zip and unzip it! No usernames or passwords required
