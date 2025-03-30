@@ -10,6 +10,10 @@ It has 2 gamemodes, Classic Mode and the Flag Mode:
 -> Comes with 4 categories: Jobs, Animals, Fruits and colors; <br>
 -> Available in 5 difficulties! (Easy, Medium, Hard, Challenge, and Random; _More details in the game_) <br>
 
+<picture>
+  <img src="C:\Users\nunon\Pictures\Screenshots\gamemode_screen.png" alt="Flowers" style="width:auto;">
+</picture>
+
 #### Flag Mode
 -> Guess the country by its flag; <br>
 -> Most countries from all inhabited continents are available! <br>
