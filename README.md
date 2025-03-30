@@ -10,10 +10,6 @@ It has 2 gamemodes, Classic Mode and the Flag Mode:
 -> Comes with 4 categories: Jobs, Animals, Fruits and colors; <br>
 -> Available in 5 difficulties! (Easy, Medium, Hard, Challenge, and Random; _More details in the game_) <br>
 
-<picture>
-  <img src="../Users/nunon/Pictures/Screenshots/gamemode_screen.png" alt="Gamemode selection screen" style="width:auto;">
-</picture>
-
 #### Flag Mode
 -> Guess the country by its flag; <br>
 -> Most countries from all inhabited continents are available! <br>
@@ -23,6 +19,9 @@ It has 2 gamemodes, Classic Mode and the Flag Mode:
 -> Available for both gamemodes; <br>
 -> Tracks your progression among all categories & difficulties; <br>
 -> You have the ability to reset it and start all over again! <br>
+
+### Hints
+You have difficulty in guessing a word? Use hints to reveal a random letter and help you!
 
 ## How to install "Guess the Word"?
 Simply download the zip and unzip it! No usernames or passwords required
