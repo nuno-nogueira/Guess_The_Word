@@ -48,6 +48,9 @@ class WelcomeScreenApp:
 
 
     def setup_instructions_screen(self):
+        """
+        Creates a new window showing the tutorial for the game
+        """
         self.instructions_window = Toplevel()
         self.instructions_window.title("How to Play?")
         self.instructions_window.geometry("900x700")
@@ -60,111 +63,122 @@ class WelcomeScreenApp:
         self.step1_lbl = Label(self.instructions_window, text="1.", font=("Arial", 24), bg="lightgrey")
         self.step1_lbl.place(x = 50, y = 30)
 
-        img1_path = os.path.join("images","instruction1_img.png")
-        img1 = Image.open(img1_path)
-        img1 = img1.resize((230, 130))
-        open_new_img = ImageTk.PhotoImage(img1)
+        img_path = os.path.join("images","instruction1_img.png")
+        img = Image.open(img_path)
+        img = img.resize((230, 130))
+        open_new_img = ImageTk.PhotoImage(img)
         self.instruction1_img = Label(self.instructions_window, image=open_new_img)
         self.instruction1_img.image = open_new_img
         self.instruction1_img.place(x = 100, y = 30)
 
         self.instruction1_lbl = Label(self.instructions_window, 
-        text="You have to guess the secret word by \ntypping out the letters! \nBe careful, you only have 5 tries!", font=("Arial", 14), bg="lightgrey")
-        self.instruction1_lbl.place(x = 60, y = 165)
+        text="You have to guess the secret word by \ntypping out the letters! \nBe careful, you only have 5 tries!", font = ("Arial", 14), bg = "lightgrey").place(x = 60, y = 165)
 
-        arrow1_path = os.path.join("images","arrow1.png")
-        arrow1 = Image.open(arrow1_path)
-        arrow1 = arrow1.resize((80, 60))
-        open_new_img = ImageTk.PhotoImage(arrow1)
-        self.arrow1_img = Label(self.instructions_window, bg="lightgrey", image= open_new_img)
+        arrow_path = os.path.join("images","arrow1.png")
+        arrow = Image.open(arrow_path)
+        arrow = arrow.resize((80, 60))
+        open_new_img = ImageTk.PhotoImage(arrow)
+        self.arrow1_img = Label(self.instructions_window, bg = "lightgrey", image = open_new_img)
         self.arrow1_img.image = open_new_img
         self.arrow1_img.place(x = 400, y = 115)
 
         #-------> Instruction 2
-        self.step2_lbl = Label(self.instructions_window, text="2.", font=("Arial", 24), bg="lightgrey")
-        self.step2_lbl.place(x = 500, y = 30)
+        self.step2_lbl = Label(self.instructions_window, text="2.", font=("Arial", 24), bg="lightgrey").place(x = 500, y = 30)
 
-        img2_path = os.path.join("images","instruction2_img.png")
-        img2 = Image.open(img2_path)
-        img2 = img2.resize((230, 230))
-        open_new_img = ImageTk.PhotoImage(img2)
-        self.instruction2_img = Label(self.instructions_window, image=open_new_img)
+        img_path = os.path.join("images","instruction2_img.png")
+        img = Image.open(img_path)
+        img = img.resize((230, 230))
+        open_new_img = ImageTk.PhotoImage(img)
+        self.instruction2_img = Label(self.instructions_window, image = open_new_img)
         self.instruction2_img.image = open_new_img
         self.instruction2_img.place(x = 550, y = 30)
 
         self.instruction2_lbl = Label(self.instructions_window, 
-        text="When you are sure about your guess,\n click on the 'Submit' button!", font=("Arial", 14), bg="lightgrey")
-        self.instruction2_lbl.place(x = 500, y = 270)
+        text="When you are sure about your guess,\n click on the 'Submit' button!", font = ("Arial", 14), bg = "lightgrey").place(x = 500, y = 270)
 
-        arrow2_path = os.path.join("images","arrow2.png")
-        arrow2 = Image.open(arrow2_path)
-        arrow2 = arrow2.resize((60, 80))
-        open_new_img = ImageTk.PhotoImage(arrow2)
-        self.arrow2_img = Label(self.instructions_window, bg="lightgrey", image= open_new_img)
+        arrow_path = os.path.join("images","arrow2.png")
+        arrow = Image.open(arrow_path)
+        arrow = arrow.resize((60, 80))
+        open_new_img = ImageTk.PhotoImage(arrow)
+        self.arrow2_img = Label(self.instructions_window, bg = "lightgrey", image = open_new_img)
         self.arrow2_img.image = open_new_img
         self.arrow2_img.place(x = 530, y = 330)
 
         #-------> Instruction 3
-        self.step3 = Label(self.instructions_window, text="3.", font=("Arial", 24), bg = "lightgrey")
+        self.step3 = Label(self.instructions_window, text = "3.", font = ("Arial", 24), bg = "lightgrey")
         self.step3.place(x = 500, y = 420)
 
-        img3_1_path = os.path.join("images","green_box.png")
-        img3_1 = Image.open(img3_1_path)
-        img3_1 = img3_1.resize((50, 50))
-        open_new_img = ImageTk.PhotoImage(img3_1)
-        self.instruction3_1_img = Label(self.instructions_window, image=open_new_img, bg = "lightgrey")
+        img_path = os.path.join("images","green_box.png")
+        img = Image.open(img_path)
+        img = img.resize((50, 50))
+        open_new_img = ImageTk.PhotoImage(img)
+        self.instruction3_1_img = Label(self.instructions_window, image = open_new_img, bg = "lightgrey")
         self.instruction3_1_img.image = open_new_img
         self.instruction3_1_img.place(x = 550, y = 450)
 
         self.instruction3_1_lbl = Label(self.instructions_window, 
-        text="You got the letter and \n its position correct!", font=("Arial", 14), bg="lightgrey")
-        self.instruction3_1_lbl.place(x = 610, y = 453)
+        text="You got the letter and \n its position correct!", font=("Arial", 14), bg="lightgrey").place(x = 610, y = 453)
 
-        img3_2_path = os.path.join("images","yellow_box.png")
-        img3_2 = Image.open(img3_2_path)
-        img3_2 = img3_2.resize((50, 50))
-        open_new_img = ImageTk.PhotoImage(img3_2)
-        self.instruction3_2_img = Label(self.instructions_window, image=open_new_img, bg = "lightgrey")
+        img_path = os.path.join("images","yellow_box.png")
+        img = Image.open(img_path)
+        img = img.resize((50, 50))
+        open_new_img = ImageTk.PhotoImage(img)
+        self.instruction3_2_img = Label(self.instructions_window, image = open_new_img, bg = "lightgrey")
         self.instruction3_2_img.image = open_new_img
         self.instruction3_2_img.place(x = 550, y = 520)
 
         self.instruction3_2_lbl = Label(self.instructions_window, 
-        text="You got the letter right but \n it's in the wrong position!", font=("Arial", 14), bg="lightgrey")
-        self.instruction3_2_lbl.place(x = 610, y = 523)
+        text="You got the letter right but \n it's in the wrong position!", font=("Arial", 14), bg="lightgrey").place(x = 610, y = 523)
 
-        img3_3_path = os.path.join("images","grey_box.png")
-        img3_3 = Image.open(img3_3_path)
-        img3_3 = img3_3.resize((50, 50))
-        open_new_img = ImageTk.PhotoImage(img3_3)
-        self.instruction3_3_img = Label(self.instructions_window, image=open_new_img, bg="lightgrey")
+        img_path = os.path.join("images","grey_box.png")
+        img = Image.open(img_path)
+        img = img.resize((50, 50))
+        open_new_img = ImageTk.PhotoImage(img)
+        self.instruction3_3_img = Label(self.instructions_window, image = open_new_img, bg = "lightgrey")
         self.instruction3_3_img.image = open_new_img
         self.instruction3_3_img.place(x = 550, y = 590)
 
         self.instruction_3_3_lbl = Label(self.instructions_window, 
-        text="The letter isn't included in \n the secret word!", font=("Arial", 14), bg="lightgrey")
-        self.instruction_3_3_lbl.place(x = 610, y = 593)
+        text="The letter isn't included in \n the secret word!", font=("Arial", 14), bg="lightgrey").place(x = 610, y = 593)
 
-        arrow3_path = os.path.join("images","arrow3.png")
-        arrow3 = Image.open(arrow3_path)
-        arrow3 = arrow3.resize((80, 60))
-        open_new_img = ImageTk.PhotoImage(arrow3)
-        self.arrow3_img = Label(self.instructions_window, bg="lightgrey", image= open_new_img)
+        arrow_path = os.path.join("images","arrow3.png")
+        arrow = Image.open(arrow_path)
+        arrow = arrow.resize((80, 60))
+        open_new_img = ImageTk.PhotoImage(arrow)
+        self.arrow3_img = Label(self.instructions_window, bg = "lightgrey", image = open_new_img)
         self.arrow3_img.image = open_new_img
         self.arrow3_img.place(x = 400, y = 520)
 
 
         #-------> Instruction 4
-        self.step4_lbl = Label(self.instructions_window, text="4.", font=("Arial", 24), bg = "lightgrey")
-        self.step4_lbl.place(x = 10, y = 350)
-
+        self.step4_lbl = Label(self.instructions_window, text="4.", font=("Arial", 24), bg = "lightgrey").place(x = 10, y = 350)
         self.instruction4_lbl = Label(self.instructions_window, text="Try to guess ALL the words in the game \n HAVE FUN! :-)",
-        font=("Arial",14), bg="lightgrey")
-        self.instruction4_lbl.place(x = 50, y = 530)
+        font=("Arial",14), bg="lightgrey").place(x = 50, y = 530)
 
-        img4_path = os.path.join("images","instruction4_img.png")
-        img4 = Image.open(img4_path)
-        img4 = img4.resize((470, 120))
-        open_new_img = ImageTk.PhotoImage(img4)
-        self.instruction4_img = Label(self.instructions_window, image=open_new_img, bg="lightgrey")
+        img_path = os.path.join("images","instruction4_img.png")
+        img = Image.open(img_path)
+        img = img.resize((470, 120))
+        open_new_img = ImageTk.PhotoImage(img)
+        self.instruction4_img = Label(self.instructions_window, image = open_new_img, bg = "lightgrey")
         self.instruction4_img.image = open_new_img
         self.instruction4_img.place(x = 10, y = 400)
+
+        icon_img = os.path.join("images", "skip_icon.png")
+        icon = Image.open(icon_img)
+        icon = icon.resize((48, 48))
+        open_new_icon = ImageTk.PhotoImage(icon)
+        self.icon1 = Label(self.instructions_window, image = open_new_icon, bg = "lightgrey")
+        self.icon1.image = open_new_icon
+        self.icon1.place(x = 10, y = 620)
+
+        self.icon1_lbl = Label(self.instructions_window, text = "Use this button to skip a \n word whenever you want!", font = ("Arial", 10), bg = "lightgrey").place(x = 70, y = 630)
+
+        icon_img = os.path.join("images", "hint_icon.png")
+        icon = Image.open(icon_img)
+        icon = icon.resize((48, 48))
+        open_new_icon = ImageTk.PhotoImage(icon)
+        self.icon1 = Label(self.instructions_window, image = open_new_icon, bg = "lightgrey")
+        self.icon1.image = open_new_icon
+        self.icon1.place(x = 250, y = 620)
+
+        self.icon1_lbl = Label(self.instructions_window, text = "Use this button to reveal \n a random letter!", font = ("Arial", 10), bg = "lightgrey").place(x = 310, y = 630)

@@ -5,12 +5,14 @@ from PIL import Image, ImageTk
 import os
 
 
-#Classic Mode
+# Classic Mode
 class ClassicModeSettings:
     def __init__(self, window):
         self.window = window
         self.difficulty_selected = ""
         self.category_selected = ""
+        self.hints = 0
+
         self.load_user_info()
         self.word_bank_progression()
         self.setup_game_settings_screen()
@@ -43,8 +45,7 @@ class ClassicModeSettings:
         self.go_back_button.place(x = 920, y = 5)
 
         #----> Category Frame Widgets
-        self.category_title = Label(self.category_frame, text="Categories", bg="lightgrey", font=("Arial", 18, "bold"))
-        self.category_title.place(x = 160, y = 10)
+        self.category_title = Label(self.category_frame, text="Categories", bg="lightgrey", font=("Arial", 18, "bold")).place(x = 160, y = 10)
 
         self.animal_category = Button(self.category_frame, text="Animals", width=9, height=1, border=2, bg="lightgrey", font=("Helvetica", 16), command=lambda:self.change_category("Animals"))
         self.job_category = Button(self.category_frame, text="Jobs", width=9, height=1, border=2, bg="lightgrey", font=("Helvetica", 16), command=lambda:self.change_category("Jobs"))
@@ -91,12 +92,10 @@ class ClassicModeSettings:
         self.tutorial_icon.image = open_new_icon
         self.tutorial_icon.place(x = 395, y = 5)
 
-        #--->Word Bank Progression Frame Widgets
-        self.word_bank_frame_title = Label(self.word_bank_frame, text = "Word Bank Progression", font=("Arial", 22,"bold"), bg="lightgrey")
-        self.word_bank_frame_title.place(x = 280, y = 10)
+        #---> Word Bank Progression Frame Widgets
+        self.word_bank_frame_title = Label(self.word_bank_frame, text = "Word Bank Progression", font=("Arial", 22,"bold"), bg="lightgrey").place(x = 280, y = 10)
 
-        self.total_words_lbl = Label(self.word_bank_frame, text="Total Words \nfound:\n{}/{}".format(self.total_words_found, self.total_words), font=("Arial", 18, "bold"), bg="lightgrey")
-        self.total_words_lbl.place(x = 375, y = 62)
+        self.total_words_lbl = Label(self.word_bank_frame, text="Total Words \nfound:\n{}/{}".format(self.total_words_found, self.total_words), font=("Arial", 18, "bold"), bg="lightgrey").place(x = 375, y = 62)
 
         self.easy_words_lbl1 = Label(self.word_bank_frame, text="Easy", font=("Arial", 18, "bold"), fg="white", bg="#84f069")
         self.easy_words_lbl2 = Label(self.word_bank_frame, text="words found:\n{}/{}" .format(self.easy_words_found, self.easy_words), bg="lightgrey", font=("Arial", 16))
@@ -199,7 +198,7 @@ class ClassicModeSettings:
         """
 
         answer = messagebox.askquestion("Reset Word Bank", 
-                               "Are you sure? If so, all the progression you've made will be reset and all the words you found can be selected again for you to guess!")
+        "Are you sure? If so, all the progression you've made will be reset and all the words you found can be selected again for you to guess!")
 
 
         if answer == "yes":
@@ -271,7 +270,7 @@ class ClassicModeSettings:
     def change_difficulty(self, new_difficulty):
         self.difficulty_selected = new_difficulty
         self.show_difficulty.set("Difficulty selected -> {}".format(self.difficulty_selected))
-
+            
 
     #---> User info related functions
     def load_user_info(self):
@@ -288,7 +287,8 @@ class ClassicModeSettings:
             user_info = f.readlines()
 
         self.category_selected = user_info[0][9:-1]
-        self.difficulty_selected = user_info[1][11:]
+        self.difficulty_selected = user_info[1][11:-1]
+        self.hints = user_info[2][7:]
 
 
     #---> Other functions 
@@ -309,64 +309,58 @@ class ClassicModeSettings:
         arrow = arrow.resize((35, 35))
         open_new_img = ImageTk.PhotoImage(arrow)
 
-        #Easy difficulty
-        self.easy_lbl = Label(self.difficulty_window, text="Easy", bg="#84f069", fg="white", font=("Helvetica", 22, "bold"))
-        self.easy_lbl.place(x = 100, y = 40)
+        # Easy difficulty
+        self.easy_lbl = Label(self.difficulty_window, text="Easy", bg="#84f069", fg="white", font=("Helvetica", 22, "bold")).place(x = 100, y = 40)
 
         self.arrow1_img = Label(self.difficulty_window, bg="lightgrey", image = open_new_img)
         self.arrow1_img.image = open_new_img
         self.arrow1_img.place(x = 200, y = 42)
 
-        self.easy_difficulty_explanation = Label(self.difficulty_window, text="up to 5 letters", bg="lightgrey", font=("Helvetica", 16))
-        self.easy_difficulty_explanation.place(x = 290, y = 45)
+        self.easy_difficulty_explanation = Label(self.difficulty_window, text="up to 5 letters", bg = "lightgrey", font=("Helvetica", 16)).place(x = 290, y = 45)
+        self.easy_difficulty_hints = Label(self.difficulty_window, text = "(1 hint p/word)", bg = "lightgrey", font = ("Helvetica", 12)).place(x = 315, y = 72)
 
-
-        #Medium difficulty
-        self.medium_lbl = Label(self.difficulty_window, text="Medium", bg="#e0e342", fg="white", font=("Helvetica", 22, "bold"))
-        self.medium_lbl.place(x = 58, y = 130)
+        # Medium difficulty
+        self.medium_lbl = Label(self.difficulty_window, text="Medium", bg="#e0e342", fg="white", font=("Helvetica", 22, "bold")).place(x = 58, y = 130)
 
         self.arrow2_img = Label(self.difficulty_window, bg="lightgrey", image = open_new_img)
         self.arrow2_img.image = open_new_img
         self.arrow2_img.place(x = 200, y = 132)
 
-        self.medium_difficulty_explanation = Label(self.difficulty_window, text="between 6 and 9 letters", bg="lightgrey", font=("Helvetica", 16))
-        self.medium_difficulty_explanation.place(x = 255, y = 135)
+        self.medium_difficulty_explanation = Label(self.difficulty_window, text="between 6 and 9 letters", bg="lightgrey", font=("Helvetica", 16)).place(x = 255, y = 135)
+        self.medium_difficulty_hints = Label(self.difficulty_window, text = "(2 hints p/word)", bg = "lightgrey", font = ("Helvetica", 12)).place(x = 310, y = 157)
 
 
-        #Hard difficulty
-        self.hard_lbl = Label(self.difficulty_window, text="Hard", bg="#de1c07", fg="white", font=("Helvetica", 22, "bold"))
-        self.hard_lbl.place(x = 100, y = 220)
+        # Hard difficulty
+        self.hard_lbl = Label(self.difficulty_window, text="Hard", bg="#de1c07", fg="white", font=("Helvetica", 22, "bold")).place(x = 100, y = 220)
 
         self.arrow3_img = Label(self.difficulty_window, bg="lightgrey", image = open_new_img)
         self.arrow3_img.image = open_new_img
         self.arrow3_img.place(x = 200, y = 222)
 
-        self.hard_difficulty_explanation = Label(self.difficulty_window, text="+10 letters", bg="lightgrey", font=("Helvetica", 16))
-        self.hard_difficulty_explanation.place(x = 290, y = 223)
+        self.hard_difficulty_explanation = Label(self.difficulty_window, text="+10 letters", bg="lightgrey", font=("Helvetica", 16)).place(x = 300, y = 223)
+        self.hard_difficulty_hints = Label(self.difficulty_window, text = "(3 hints p/word)", bg = "lightgrey", font = ("Helvetica", 12)).place(x = 305, y = 245)
 
-
-        #Challenge difficulty
-        self.challenge_lbl = Label(self.difficulty_window, text="Challenge", bg="#751207", fg="white", font=("Helvetica", 22, "bold"))
-        self.challenge_lbl.place(x = 25, y = 310)
+        # Challenge difficulty
+        self.challenge_lbl = Label(self.difficulty_window, text="Challenge", bg="#751207", fg="white", font=("Helvetica", 22, "bold")).place(x = 25, y = 310)
 
         self.arrow4_img = Label(self.difficulty_window, bg="lightgrey", image = open_new_img)
         self.arrow4_img.image = open_new_img
         self.arrow4_img.place(x = 200, y = 312)
 
-        self.challenge_difficulty_explanation = Label(self.difficulty_window, text="5 minutes to guess\n 5 'Hard' words", bg="lightgrey", font=("Helvetica", 16))
-        self.challenge_difficulty_explanation.place(x = 260, y = 300)
+        self.challenge_difficulty_explanation = Label(self.difficulty_window, text="5 minutes to guess\n 5 'Hard' words", bg="lightgrey", font=("Helvetica", 16)).place(x = 260, y = 300)
 
 
     def start_game(self):
         if self.category_selected == "" or self.difficulty_selected == "":
             messagebox.showwarning("Error","You need to select a category and a difficulty to start the game!")
         else:
+            # Remove all widgets
             self.category_frame.place_forget()
             self.difficulty_frame.place_forget()
             self.word_bank_frame.place_forget()
             self.play_button.place_forget()
             self.go_back_button.place_forget()
-            Game(self.window, self.difficulty_selected, self.category_selected, "Classic")
+            Game(self.window, self.difficulty_selected, self.category_selected, self.hints, "Classic")
 
 
     def go_back(self):
@@ -374,6 +368,7 @@ class ClassicModeSettings:
         This function will make the user go back to the
         gamemode selection screen!
         """
+        # Remove all widgets
         self.category_frame.place_forget()
         self.difficulty_frame.place_forget()
         self.word_bank_frame.place_forget()
@@ -385,12 +380,13 @@ class ClassicModeSettings:
 
 
 
-#Flag Mode!
+# Flag Mode!
 class FlagModeSettings:
     def __init__(self, window):
         self.window = window
+        self.hints = 0
 
-
+        self.load_user_info()
         self.country_bank_progression()
         self.setup_game_settings_screen()
 
@@ -421,8 +417,8 @@ class FlagModeSettings:
 
         self.word_bank_progression_lbl = Label(self.window, text = "Word Bank Progression", bg = "lightgrey", font=("Arial", 24, "bold"))
         self.word_bank_progression_lbl.place(x = 335, y = 475)
-        # ---> Continent Frame Widgets
 
+        # ---> Continent Frame Widgets
         # ---> Continent Labels
         self.europe_lbl = Label(self.continents_frame, text = "Europe", font = ("Arial", 18, "bold"), bg = "lightgrey")
         self.america_lbl = Label(self.continents_frame, text = "America", font = ("Arial", 18, "bold"), bg = "lightgrey")
@@ -636,7 +632,22 @@ class FlagModeSettings:
         self.choose_continent_lbl.place_forget()
         self.word_bank_progression_lbl.place_forget()
 
-        Game(self.window, "", category, "Flag")
+        Game(self.window, "", category, self.hints, "Flag")
+
+    def load_user_info(self):
+        """
+        This function will load the user info from the "user.txt" file
+        which contain the difficulty & category that the user previously chose
+        """
+
+        # Get the absolute path of the directory where the script is located & csonstruct the full path to the file
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(base_dir, "user.txt")
+
+        with open(file_path, "r", encoding="utf-8") as f:
+            user_info = f.readlines()
+
+        self.hints = user_info[2][7:]
 
     def go_back(self):
         """

@@ -1,2 +1,3 @@
-Category:Asia
+Category:
 Difficulty:
+Hints: 3
