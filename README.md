@@ -20,7 +20,7 @@ It has 2 gamemodes, Classic Mode and the Flag Mode:
 -> Tracks your progression among all categories & difficulties; <br>
 -> You have the ability to reset it and start all over again! <br>
 
-### Hints
+#### Hints
 You have difficulty in guessing a word? Use hints to reveal a random letter and help you!
 
 ## How to install "Guess the Word"?
